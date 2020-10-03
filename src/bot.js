@@ -8,6 +8,13 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 const UPLOAD_FOLDER = process.env.UPLOAD_FOLDER;
 const PREFIX_BLACKLIST = [':', '/', '\\'];
 
+// ===================== Disclaimer =======================
+console.log(`SoundBot Copyright (C) 2020  Kai Xiang Yong
+This program comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it
+under certain conditions
+`)
+
 // ===================== Database =========================
 const db = mongoose.connection;
 mongoose.connect('mongodb://localhost:27017/soundfx', {useNewUrlParser: true, useUnifiedTopology: true});
