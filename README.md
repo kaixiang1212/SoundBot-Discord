@@ -1,6 +1,6 @@
 # Soundbot-Discord
 
-### License
+## License
 Copyright (C) 2020  Kai Xiang Yong
 
 This program is free software: you can redistribute it and/or modify
