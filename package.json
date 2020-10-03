@@ -1,0 +1,25 @@
+{
+  "name": "SoundFX",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.10.7",
+    "mongoose-sequence": "^5.2.2",
+    "opus": "0.0.0",
+    "opusscript": "0.0.7",
+    "request": "^2.88.2",
+    "ytdl-core-discord": "^1.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/bot.js",
+    "dev": "nodemon ./src/bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
