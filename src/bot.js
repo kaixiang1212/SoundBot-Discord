@@ -49,12 +49,19 @@ function createClip(index, name, owner, isPublic) {
   return newClip;
 }
 
-function getClipCount() {
-  return Clip.countDocuments();
+const CounterSchema = new mongoose.Schema({
+  id: String,
+  seq: Number
+})
+
+const Counter = mongoose.model('counter', CounterSchema)
+
+function getClipCounter() {
+  return Counter.findOne({'id': "id"});
 }
 
 function getAllClips() {
-  return Clip.find({});
+  return Clip.find({}).sort("id");
 }
 
 const GuildSchema = new mongoose.Schema({
@@ -207,8 +214,7 @@ client.on('message', async message => {
           list += `${val.id}. ${val.name}\n`
         });
 
-        message.channel.send('Available Soundtrack:');
-        message.channel.send(list);
+        message.channel.send('Available Soundtrack:\n'+list);
         break;
       case 'play':
         // No arguments
@@ -337,6 +343,10 @@ client.on('message', async message => {
 
         message.channel.send(exampleEmbed);
         break;
+      case 'test':
+        counter = await getClipCounter();
+        console.log(counter.seq);
+        break;
       default:
         arg = message.content
           .trim()
@@ -392,8 +402,8 @@ client.on('message', async message => {
       if (attachments[0] && attachments[0].url) {
         // Attachment Upload
         message.reply(`Received ${attachments[0].url} for ${server.uploading}`);
-        index = await getClipCount();
-        index++;
+        counter = await getClipCounter();
+        index = counter.seq + 1;
         // Download and save file named after its index
         download_file(attachments[0].url, index);
         // Create a database entry
