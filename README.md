@@ -29,7 +29,7 @@ A bot that do sound effect with short audio clip during voice or video call.
    ```bash
    git clone git@github.com:kaixiang1212/SoundBot-Discord.git
    ```
-   or [download it here][repo download] and unzip
+   or [download here][repo download] and unzip it
    
 2. Navigate into the repository in the command prompt by typing
    ```bash
