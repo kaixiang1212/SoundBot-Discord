@@ -40,16 +40,20 @@ client.on('message', async message => {
 
     let command;
     if ((command = commands[CMD_NAME])) command.execute(message, arg);
-    else play(message, message.content, {urlPlayback: false}).then((result) => {
+    else {
+      play(message, message.content, {urlPlayback: false}).then((result) => {
         if (result === false) message.reply("Unknown command: " + message.content);
       });
-  } else {
+    }
+  } else if (/[\[\]]/.exec(message.content)) {
     const pattern = /\[(.*?)]/g;
     let match;
-    while ((match = pattern.exec(message.content))){
+    while ((match = pattern.exec(message.content))) {
       let keyword = match[1];
       play(message, keyword, {urlPlayback: false, idPlayback: false}).then();
     }
+  } else {
+    play(message, message.content, {urlPlayback: false, idPlayback: false}).then();
   }
 
   if (sessions.getOrCreateSession(message.guild.id).uploading && message.attachments[0]){
