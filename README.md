@@ -1,5 +1,5 @@
 # Soundbot Discord
-A bot that do sound effect with short audio clip during voice or video call.
+A bot that does sound effect with short audio clip during voice or video call.
 
 ## Features
 - Uses a queue system to handle multiple playback commands at once
