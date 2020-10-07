@@ -24,7 +24,7 @@ ClipsSchema.plugin(AutoIncrement, {inc_field: 'id'});
 const Clip = mongoose.model('Clip', ClipsSchema);
 
 exports.getClipByName = (name) => {
-  return Clip.findOne({'name': {$regex: name , $options: 'i'}});
+  return Clip.findOne({'name': {$regex: `^${name}$` , $options: 'i'}});
 }
 
 exports.getClipByID = (id) => {
